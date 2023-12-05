@@ -12,14 +12,19 @@
 
 //alternate
 
-const reverseString = function(str) {
+// const reverseString = function(str) {
 
-let splitString = str.split("");
-let reverseArray = splitString.reverse();
-let newArray = reverseArray.join("");
+// let splitString = str.split("");
+// let reverseArray = splitString.reverse();
+// let newArray = reverseArray.join("");
 
-return newArray;
-};
+// return newArray;
+// };
+
+// alternate chained
+const reverseString = function (string) {
+    return string.split("").reverse().join("");
+  };
 
 // Do not edit below this line
 module.exports = reverseString;
