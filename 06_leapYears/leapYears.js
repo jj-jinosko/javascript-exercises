@@ -1,17 +1,27 @@
-const leapYears = function(year) {
-    if (year % 400 == 0){
+const leapYears = function(year){
+    if (year % 400 === 0 || year % 4 === 0 && year % 100 != 0){
         return true;
     }
-    else if (year % 100 == 0){ // won't check this is divisible by 400
+    else{
         return false;
     }
-    else if (year % 4 == 0){
-        return true;
-    }
-    else {
-        return false;
-    }
-};
+}
+
+
+// const leapYears = function(year) {
+//     if (year % 400 == 0){
+//         return true;
+//     }
+//     else if (year % 100 == 0){ // won't check this is divisible by 400
+//         return false;
+//     }
+//     else if (year % 4 == 0){
+//         return true;
+//     }
+//     else {
+//         return false;
+//     }
+// };
 
 // Do not edit below this line
 module.exports = leapYears;
