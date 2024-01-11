@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const books = [
+    {
+        title: 'Book',
+        author: 'Name'
+    },
+    {
+        title: 'Book2',
+        author: 'Name2'
+    }
+    ]
+
+    console.log(typeof(books));
+    console.log(books.map((obj)=>obj.title));
+
+    console.log('items');
+    for(item of books){
+        console.log(item);
+        console.log(item.title);
+    }
+
+
+    </script>
+</body>
+</html>
