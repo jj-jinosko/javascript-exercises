@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>testing</h1>
+
+    <script>
+        // create an animal object constructor
+        // function Animal () {
+            
+        // }
+        
+        let animal = {
+        eats: true
+        };
+        let rabbit = {
+        jumps: true
+        };
+
+        //------------Chain rabbit to inherit from animal -------------- 
+        // set animal to be the prototype of rabbit
+        // Here we can say that "animal is the prototype of rabbit" or "rabbit prototypically inherits from animal".
+
+        //-------setPrototypeOf
+        Object.setPrototypeOf(rabbit, animal);
+
+        // deprecated proto method
+
+        // rabbit.__proto__ = animal; // sets rabbit.[[Prototype]] = animal
+
+
+        // we can find both properties in rabbit now:
+        console.log( rabbit.eats ); // true (**)
+        console.log( rabbit.jumps ); // true
+
+
+
+        // -----------Challenge 2---------------
+        let head = {
+        glasses: 1
+        };
+
+        let table = {
+        pen: 3
+        };
+
+        let bed = {
+        sheet: 1,
+        pillow: 2
+        };
+
+        let pockets = {
+        money: 2000,
+        __proto__: bed,
+        };
+        // Use __proto__ to assign prototypes in a way that any property lookup will 
+        // follow the path: pockets → bed → table → head. 
+
+        // pockets.__proto__ = bed;
+        bed.__proto__ = table;
+        table.__proto__ = head;
+
+        console.log("prototype of pockets")
+        console.log(Object.getPrototypeOf(pockets))
+
+        console.log("prototype of bed")
+        console.log(Object.getPrototypeOf(bed))
+
+        // ---------------3-----------
+
+
+    </script>
+</body>
+</html>
