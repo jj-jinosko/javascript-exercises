@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals as Objects</title>
+</head>
+<body>
+    <ul>
+
+    </ul>
+
+
+    <script>
+        // ------------create new HTML elements, then add content------------
+        const newListItem = document.createElement("li");
+        const node = document.createTextNode("test again");
+        newListItem.appendChild(node);
+
+        const myList = document.querySelector('ul');
+        myList.appendChild(newListItem);
+        // newListItem.textContent = "test";
+
+        //
+        // --------create an object------------
+
+        // create an object using object literal notation
+        const Mayan = {
+            color: "black",
+            breed: "Brussels Griffon",
+            test: function() {return "testing"},
+            // test2: const myFun = function () {return "testing again"},
+            sleep() {this.isSleeping = true;},
+        }
+
+        console.log(Mayan.breed);
+        console.log(Mayan.test());
+        
+        console.log(Mayan.isSleeping); // the sleep method hasn't been called yet
+        console.log(Mayan.sleep()); //sleep is a method, so returns undefined
+        console.log(Mayan.isSleeping)
+
+        for (let prop in Mayan) {
+            console.log('Properties of Mayan and inherited properties: ', prop);
+        }
+
+
+
+        // const Dog = function (name, breed, color) {
+        //     this.name = name;
+        //     this.breed = breed;
+        //     this.color = color;
+
+        //     let barkCount = 0;
+
+        //     this.bark = function() {
+        //         barkCount++;
+        //         console.log(barkCount)
+        //         console.log(this.name + " bark");
+        //     }
+
+        //     this.getBarkCount = function() {
+        //         return(this.name + " has barked " + barkCount + " time(s)");
+        //     }
+        // }
+
+        function Dog (name, breed, color) {
+            this.name = name;
+            this.breed = breed;
+            this.color = color;
+
+            let barkCount = 0;
+
+            this.bark = function() {
+                barkCount++;
+                console.log(barkCount)
+                console.log(this.name + " bark");
+            }
+
+            this.getBarkCount = function() {
+                return(this.name + " has barked " + barkCount + " time(s)");
+            }
+        }
+
+        const Freddie = new Dog("Freddie", "Rat Terrior Chihuahua mix", "white");
+        console.log(Freddie.breed)
+        Freddie.bark();
+        // console.log(Freddie.barkCount);
+        console.log(Freddie.getBarkCount());
+
+
+        // ==================================================
+        // Q: 
+        // Does it matter if you create an object from a 
+        // function expression or a function declaration?
+        
+
+
+        const Foo = function(whatever) {
+            this.whatever = whatever;
+        }
+        let f = new Foo("apple");
+        console.log(f.whatever) // "apple"
+
+        function Bar(whatever) {
+            this.whatever = whatever;
+        }
+
+        let b = new Bar("banana");
+        console.log(b.whatever); // "banana"
+
+        // A:
+        // It doesn't seem like it. 
+        // note: Hoisting is different between expression and declaration
+        //=============================================
+
+    </script>
+</body>
+</html>
